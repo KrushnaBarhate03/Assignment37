@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 37 </title>
+  <style>
+    #search{
+    margin-left:50%;
+   border:1px solid black;
+   border-radius:3px;
+   padding:5px;
+   background-color: aliceblue;
+   box-shadow: 0 0 2px black;
+
+    }
+    .student-card{
+      background-color: aliceblue;
+      padding:10px;
+      margin:15px;
+      border-radius:5px;
+      box-shadow: 0 0 2px black;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="search" placeholder="Enter Name" oninput="Result()">
+  <div id="container"></div>
+  <script>
+    const students = [
+      "Krushna",
+      "Pratik",
+      "Sai",
+      "Raj",
+      "Dev",
+      "Devraj",
+      "shiv",
+      "vikas",
+      "vikarm"
+    ];
+  
+    const studentsContainer = document.getElementById('container');
+    students.forEach((student) => {
+      studentsContainer.innerHTML += `<div class='student-card'>${student}</div>`;
+    });
+  
+    function Result() {
+      const inputElement = document.getElementById('search');
+      const searchText = inputElement.value.toLowerCase(); 
+      studentsContainer.innerHTML = ''; 
+      const filteredStudent = students.filter((student) => {
+        return student.toLowerCase().includes(searchText);
+      });
+  
+      filteredStudent.forEach((student) => {
+        studentsContainer.innerHTML += `<div class='student-card'>${student}</div>`;
+      });
+    }
+  </script>
+  
+</body>
+</html>
